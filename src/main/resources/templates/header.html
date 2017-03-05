@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org xmlns:sec=http://www.thymeleaf.org/extras/spring-security">
+<head>
+<link rel="stylesheet" type="text/css" href="../static/css/w3.css" th:href="@{css/w3.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <header class="w3-container w3-red">
+        <a href="#" th:href="@{/}">Accueil</a>
+        <li><a href="#" th:href="@{/utilisateurs}">Utilisateurs</a></li>
+        <li><a href="#" th:href="@{/activites}">Activites</a></li>
+    </header>
+    <div class="w3-container">
+
+
+        <img src="../static/images/logo_linux.jpeg" class="w3-circle" alt="linux" style="width:7%"
+         th:src="@{/images/logo_linux.jpeg}"/>
+
+
+        <div class="w3-row-padding w3-section">
+            <div class="w3-half">
+                <div class="w3-card-2">
+                <img src="../static/images/logo_linux.jpeg" alt="linux" style="width:100%"
+                     th:src="@{/images/logo_linux.jpeg}"/>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="w3-container w3-red">
+        <h5>Footer</h5>
+        <p>Pieds de pages</p>
+    </footer>
+</body>
+</html>
