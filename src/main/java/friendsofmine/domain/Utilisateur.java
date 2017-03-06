@@ -16,7 +16,7 @@ import java.util.Date;
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long identifiant;
+    private Long id;
 
     @NotNull
     @Size(min = 1)
@@ -26,27 +26,30 @@ public class Utilisateur {
     private String prenom;
     @NotNull
     @Pattern(regexp = "[a-z]*@[a-z]*.com")
-    private String mail;
+    private String email;
     @NotNull
     @Pattern(regexp = "[M,F]")
     private String sexe;
     private Date date;
 
-    public Utilisateur(String nom, String prenom, String mail, String sexe, Date date) {
+    public Utilisateur(String nom, String prenom, String email, String sexe, Date date) {
         this.nom = nom;
         this.prenom = prenom;
-        this.mail = mail;
+        this.email = email;
         this.sexe = sexe;
         this.date = date;
     }
 
-    public Utilisateur(String nom, String prenom, String mail, String sexe) {
+    public Utilisateur(String nom, String prenom, String email, String sexe) {
         this.nom = nom;
         this.prenom = prenom;
-        this.mail = mail;
+        this.email = email;
         this.sexe = sexe;
     }
 
+    public Long getId() {
+        return id;
+    }
     public String getNom() {
         return nom;
     }
@@ -56,7 +59,7 @@ public class Utilisateur {
     }
 
     public String getMail() {
-        return mail;
+        return email;
     }
 
     public String getSexe() {
@@ -67,4 +70,11 @@ public class Utilisateur {
         return date;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

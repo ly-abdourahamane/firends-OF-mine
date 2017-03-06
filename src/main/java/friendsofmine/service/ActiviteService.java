@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-public class ActiviteService implements ActiviteRepository {
+public class ActiviteService  {
+
     private ActiviteRepository activiteRepository;
 
     @Autowired
@@ -19,17 +20,17 @@ public class ActiviteService implements ActiviteRepository {
     }
 
     public void saveActivite(Activite activite){
-        this.activiteRepository.saveActivite(activite);
+        this.activiteRepository.save(activite);
     }
+
     public Activite findOneActivite(Long id){
-        return this.activiteRepository.findOneActivite(id);
+        return this.activiteRepository.findOne(id);
     }
-    public void setDescriptif(String descriptif){
-        this.activiteRepository.setDescriptif(descriptif);
-    }
+
     public Long countActivite(){
-        return this.activiteRepository.countActivite();
+        return this.activiteRepository.count();
     }
+
     public ActiviteRepository getActiviteRepository(){
         return activiteRepository;
     }

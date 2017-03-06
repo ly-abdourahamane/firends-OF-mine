@@ -12,24 +12,19 @@ public class UtilisateurService {
     private UtilisateurRepository utilisateurRepository;
 
     public void saveUtilisateur(Utilisateur utilisateur) {
-
+        this.utilisateurRepository.save(utilisateur);
     }
-    public Long getId() {
 
+    public Utilisateur findOneUtilisateur(Long id){
+       return this.utilisateurRepository.findOne(id);
     }
-    public Utilisateur findOneUtilisateur(Utilisateur utilisateur){
 
-    }
-    public String getEmail(){
 
-    }
     public Long countUtilisateur(){
-
+        return this.utilisateurRepository.count();
     }
-    public void setEmail(String email){
 
-    }
-    public UtilisateurRepository getUtilisateurRepository(){
-
+    public UtilisateurRepository getUtilisateurRepository() {
+        return utilisateurRepository;
     }
 }

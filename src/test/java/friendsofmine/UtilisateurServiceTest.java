@@ -61,7 +61,7 @@ public class UtilisateurServiceTest {
 
     @Test
     public void testNombreDUtilisateurPersisteeApresMiseAJour() {
-        long count = utilisateurService.countUtilisateur();
+        Long count = utilisateurService.countUtilisateur();
         Utilisateur fetched = utilisateurService.findOneUtilisateur(util1.getId());
         fetched.setEmail("titi@titi.fr");
         utilisateurService.saveUtilisateur(fetched);
