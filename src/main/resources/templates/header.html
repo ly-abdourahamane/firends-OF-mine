@@ -5,12 +5,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <header class="w3-container w3-red">
-        <a href="#" th:href="@{/}">Accueil</a>
-        <li><a href="#" th:href="@{/utilisateurs}">Utilisateurs</a></li>
-        <li><a href="#" th:href="@{/activites}">Activites</a></li>
+<div class="w3-container">
+    <div class="w3-show-inline-block">
+        <div class="w3-bar w3-light-grey">
+    <header >
+        <a href="#" class="w3-bar-item w3-button w3-dark-grey" th:href="@{/}">Accueil</a>
+        <a href="#" class="w3-bar-item w3-button" th:href="@{/utilisateurs}">Utilisateurs</a>
+        <a href="#" class="w3-bar-item w3-button" th:href="@{/activites}">Activites</a>
     </header>
-    <div class="w3-container">
+        </div>
+    </div>
+
 
 
         <img src="../static/images/logo_linux.jpeg" class="w3-circle" alt="linux" style="width:7%"
