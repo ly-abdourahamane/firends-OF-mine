@@ -1,4 +1,4 @@
-package friendsofmine.controllers;
+package friendsofmine;
 
 
 import friendsofmine.controllers.IndexController;

@@ -1,5 +1,9 @@
 package friendsofmine.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -8,7 +12,12 @@ import java.util.Date;
 /**
  * Created by kotoly on 03/03/17.
  */
+@Entity
 public class Utilisateur {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long identifiant;
+
     @NotNull
     @Size(min = 1)
     private String nom;
