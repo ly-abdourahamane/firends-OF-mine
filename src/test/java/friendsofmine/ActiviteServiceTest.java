@@ -1,8 +1,7 @@
 package friendsofmine;
 
 import friendsofmine.domain.Activite;
-import friendsofmine.domain.Activite;
-import friendsofmine.repositories.ActiviteRepository;
+import friendsofmine.domain.Utilisateur;
 import friendsofmine.service.ActiviteService;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,9 +45,8 @@ public class ActiviteServiceTest {
 
     @Test
     public void testActiviteRecupereeNotNull() {
-        activiteService.saveActivite(act1);
         Activite fetched = activiteService.findOneActivite(act1.getId());
-        assertNull(fetched);
+        assertNotNull(fetched);
     }
 
     @Test
@@ -75,10 +73,12 @@ public class ActiviteServiceTest {
         Activite fetched = activiteService.findOneActivite(act1.getId());
         fetched.setDescriptif("Nouvelle description");
         activiteService.saveActivite(fetched);
-        assertEquals(count, activiteService.countActivite());    }
+        assertEquals(count, activiteService.countActivite());
+    }
 
     @Test
     public void testTypeRepository() {
-        assertThat(activiteService.getActiviteRepository(), instanceOf(ActiviteRepository.class));
+        assertThat(activiteService.getActiviteRepository(),
+                instanceOf(PagingAndSortingRepository.class));
     }
 }

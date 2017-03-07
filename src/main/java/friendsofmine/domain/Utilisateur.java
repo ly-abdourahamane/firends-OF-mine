@@ -1,13 +1,14 @@
 package friendsofmine.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.validator.constraints.Email;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by kotoly on 03/03/17.
@@ -25,13 +26,28 @@ public class Utilisateur {
     @Size(min = 1)
     private String prenom;
     @NotNull
-    @Pattern(regexp = "[a-z]*@[a-z]*.com")
+    @Email
+  //  @Pattern(regexp = "[a-z]*@[a-z]*.com")
     private String email;
     @NotNull
     @Pattern(regexp = "[M,F]")
     private String sexe;
+
     private Date date;
 
+    //mise en place de persistance
+    @OneToMany
+    @JoinColumn(name = "id")
+    private Set<Activite> ensemble_activites = new HashSet<Activite>();
+    public void addActivites(Activite activite) {
+        ensemble_activites.add(activite);
+    }
+
+    public Set<Activite> getEnsemble_activites() {
+        return ensemble_activites;
+    }
+
+    public Utilisateur(){}
     public Utilisateur(String nom, String prenom, String email, String sexe, Date date) {
         this.nom = nom;
         this.prenom = prenom;
