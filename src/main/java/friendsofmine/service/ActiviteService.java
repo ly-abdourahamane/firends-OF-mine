@@ -20,6 +20,10 @@ public class ActiviteService implements IActiviteService {
         this.activiteRepository = activiteRepository;
     }
 
+    public ActiviteService() {
+
+    }
+
     @Override
     public void saveActivite(Activite activite){
         this.activiteRepository.save(activite);
@@ -30,16 +34,13 @@ public class ActiviteService implements IActiviteService {
         return this.activiteRepository.findOne(id);
     }
 
-    @Override
-    public void setDescriptif(String descriptif) {
-
-    }
 
     @Override
     public Long countActivite(){
         return this.activiteRepository.count();
     }
 
+    @Override
     public ActiviteRepository getActiviteRepository(){
         return activiteRepository;
     }

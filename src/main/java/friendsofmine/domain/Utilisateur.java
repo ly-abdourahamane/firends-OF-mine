@@ -37,14 +37,13 @@ public class Utilisateur {
 
     //mise en place de persistance
     @OneToMany
-    @JoinColumn(name = "id")
-    private Set<Activite> ensemble_activites = new HashSet<Activite>();
+    private Set<Activite> activites = new HashSet<Activite>();
     public void addActivites(Activite activite) {
-        ensemble_activites.add(activite);
+        activites .add(activite);
     }
 
     public Set<Activite> getEnsemble_activites() {
-        return ensemble_activites;
+        return  activites ;
     }
 
     public Utilisateur(){}
@@ -84,6 +83,10 @@ public class Utilisateur {
 
     public Date getDate() {
         return date;
+    }
+
+    public Set<Activite> getActivites() {
+        return activites;
     }
 
     public String getEmail() {

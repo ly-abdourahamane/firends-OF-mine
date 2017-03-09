@@ -20,7 +20,6 @@ public class UtilisateurServiceTest {
     @Autowired
     private UtilisateurService utilisateurService;
 
-
     private Utilisateur util, util1;
 
     @Before

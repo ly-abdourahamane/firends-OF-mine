@@ -12,7 +12,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 public class Activite {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -26,8 +25,8 @@ public class Activite {
     private String descriptif;
 
     //mise en place de la persistance
+   // @NotNull
     @ManyToOne
-    @JoinColumn(name = "id")
     private  Utilisateur utilisateur;
 
     public Utilisateur getUtilisateur() {
@@ -44,6 +43,13 @@ public class Activite {
         this.titre = titre;
         this.descriptif = descriptif;
     }
+
+    public Activite(String titre, String descriptif, Utilisateur utilisateur) {
+        this.titre = titre;
+        this.descriptif = descriptif;
+        this.utilisateur = utilisateur;
+    }
+
     public void setDescriptif(String descriptif) {
         this.descriptif = descriptif;
     }

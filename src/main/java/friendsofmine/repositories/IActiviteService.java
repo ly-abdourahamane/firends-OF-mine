@@ -8,7 +8,6 @@ import friendsofmine.domain.Activite;
 public interface IActiviteService {
     public void saveActivite(Activite activite);
     public Activite findOneActivite(Long id);
-    public void setDescriptif(String descriptif);
     public Long countActivite();
     public ActiviteRepository getActiviteRepository();
 }
