@@ -1,5 +1,6 @@
 package friendsofmine.controllers;
 
+import friendsofmine.service.ActiviteService;
 import friendsofmine.service.Bootstrap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,12 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ActiviteController {
+
     @Autowired
-    private Bootstrap bootstrap;
+    private ActiviteService activiteService;
 
     @RequestMapping(value = "/activites", method = RequestMethod.GET)
     public String list(Model model){
-        model.addAttribute("activites", bootstrap.getInitialisationService().getListeActivite());
+        model.addAttribute("activites", activiteService.findAllActivites());
         return "activites";
     }
 }

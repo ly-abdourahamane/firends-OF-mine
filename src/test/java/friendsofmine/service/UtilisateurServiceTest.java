@@ -1,4 +1,4 @@
-package friendsofmine;
+package friendsofmine.service;
 
 import friendsofmine.domain.Utilisateur;
 import friendsofmine.service.UtilisateurService;

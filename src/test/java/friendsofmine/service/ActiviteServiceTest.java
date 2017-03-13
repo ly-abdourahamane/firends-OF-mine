@@ -1,4 +1,4 @@
-package friendsofmine;
+package friendsofmine.service;
 
 import friendsofmine.domain.Activite;
 import friendsofmine.domain.Utilisateur;
@@ -72,6 +72,7 @@ public class ActiviteServiceTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testSaveActiviteNull(){
+
         activiteService.saveActivite(null);
     }
 

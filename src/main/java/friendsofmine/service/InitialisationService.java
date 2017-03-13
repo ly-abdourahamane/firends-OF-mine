@@ -2,6 +2,9 @@ package friendsofmine.service;
 
 import friendsofmine.domain.Activite;
 import friendsofmine.domain.Utilisateur;
+import friendsofmine.repositories.ActiviteRepository;
+import friendsofmine.repositories.UtilisateurRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -18,24 +21,22 @@ import java.util.List;
 public class InitialisationService {
 
     public InitialisationService(){}
-    private List<Utilisateur> listeUtilisateur ;
-    private List<Activite> listeActivite ;
 
-    public List<Utilisateur> getListeUtilisateur() {
-        return listeUtilisateur;
-    }
+    @Autowired
+    private ActiviteRepository activiteRepository;
 
-    public List<Activite> getListeActivite() {
-        return listeActivite;
-    }
+    @Autowired
+    private UtilisateurRepository utilisateurRepository;
+
+    private  Activite randonnee, lindyhop, taekwondo;
+    private Utilisateur mary, thom;
 
     public void initDonnees() {
-        listeUtilisateur = new ArrayList<Utilisateur>();
-        listeActivite = new ArrayList<Activite>();
         Activite activite1 = new Activite("preparateur de commande","prepare des commandes pour des magasin");
         Activite activite2 = new Activite("footing","fait du sport pour se mettre en forme");
         Activite activite3 = new Activite("reviser","preparation d'un examen");
         Activite activite4 = new Activite("conduire","aller avec des amis en foot en salle");
+
 
         Date date = Calendar.getInstance().getTime();
 
@@ -45,15 +46,48 @@ public class InitialisationService {
         Utilisateur utilisateur4 = new Utilisateur("camara","aissata","aissata@gmail.com","F",new Date());
         Utilisateur utilisateur5 = new Utilisateur("kololomou","jean","jean@gmail.com","M",date);
 
-        listeActivite.add(activite1);
-        listeActivite.add(activite2);
-        listeActivite.add(activite3);
-        listeActivite.add(activite4);
+        mary = new Utilisateur("mary","youla","mary@gmail.com","F",date);
+        thom = new Utilisateur("thom","diallo","thom@gmail.com","M",date);
+        randonnee = new Activite("randonnée","randonnée");
+        lindyhop = new Activite("lindyhop","lindyhp");
+        taekwondo = new Activite("taekwondo","taekwondo");
 
-        listeUtilisateur.add(utilisateur1);
-        listeUtilisateur.add(utilisateur2);
-        listeUtilisateur.add(utilisateur3);
-        listeUtilisateur.add(utilisateur4);
-        listeUtilisateur.add(utilisateur5);
+        activiteRepository.save(randonnee);
+        activiteRepository.save(lindyhop);
+        activiteRepository.save(taekwondo);
+
+        utilisateurRepository.save(thom);
+        utilisateurRepository.save(mary);
+
+      /*  activiteRepository.save(activite1);
+        activiteRepository.save(activite2);
+        activiteRepository.save(activite3);
+        activiteRepository.save(activite4);
+
+        utilisateurRepository.save(utilisateur1);
+        utilisateurRepository.save(utilisateur2);
+        utilisateurRepository.save(utilisateur3);
+        utilisateurRepository.save(utilisateur4);
+        utilisateurRepository.save(utilisateur5); */
+    }
+
+    public Activite getRandonnee() {
+        return randonnee;
+    }
+
+    public Activite getLindyhop() {
+        return lindyhop;
+    }
+
+    public Activite getTaekwondo() {
+        return taekwondo;
+    }
+
+    public Utilisateur getThom() {
+        return thom;
+    }
+
+    public Utilisateur getMary() {
+        return mary;
     }
 }

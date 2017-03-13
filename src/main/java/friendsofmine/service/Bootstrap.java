@@ -11,12 +11,8 @@ import javax.annotation.PostConstruct;
 @Component
 public class Bootstrap {
 
-    private InitialisationService initialisationService;
-
     @Autowired
-    public void setInitialisationService(InitialisationService initialisationService){
-        this.initialisationService = initialisationService;
-    }
+    private InitialisationService initialisationService;
 
     public InitialisationService getInitialisationService() {
         return initialisationService;
