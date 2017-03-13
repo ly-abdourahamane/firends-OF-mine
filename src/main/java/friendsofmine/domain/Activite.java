@@ -26,7 +26,7 @@ public class Activite {
 
     //mise en place de la persistance
    // @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private  Utilisateur utilisateur;
 
     public Utilisateur getUtilisateur() {

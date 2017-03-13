@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,6 +19,7 @@ import java.util.List;
  */
 
 @Service
+@Transactional
 public class InitialisationService {
 
     public InitialisationService(){}
@@ -48,7 +50,8 @@ public class InitialisationService {
 
         mary = new Utilisateur("mary","youla","mary@gmail.com","F",date);
         thom = new Utilisateur("thom","diallo","thom@gmail.com","M",date);
-        randonnee = new Activite("randonnée","randonnée");
+
+        randonnee = new Activite("randonnee","randonnée");
         lindyhop = new Activite("lindyhop","lindyhp");
         taekwondo = new Activite("taekwondo","taekwondo");
 
