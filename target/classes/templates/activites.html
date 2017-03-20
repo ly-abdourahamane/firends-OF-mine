@@ -1,26 +1,27 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <link rel="stylesheet" type="text/css" href="../static/css/w3.css" th:href="@{css/w3.css}" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>activites</title>
-    </head>
-    <body >
-        <div class="w3-container">
-            <!--/*/ <th:block th:include="header :: header"></th:block> /*/-->
-            <h1>Liste des Activites</h1>
-            <table class="w3-table-all">
-                <tr class="w3-red">
-                    <th>nom</th>
-                    <th>descriptif</th>
-                </tr>
+<head>
+    <title>Friends of Mine</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/w3.css" th:href="@{/css/w3.css}"/>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
 
-                <tr th:each="activite: ${activites}">
-                    <td th:text="${activite.titre}"></td>
-                    <td th:text="${activite.descriptif}"></td>
-                </tr>
-            </table>
+<body>
+<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-        </div>
-    </body>
+<div class="w3-container">
+    <h1>Liste des Activites</h1>
+    <table class="w3-table-all w3-hoverable">
+        <tr class="w3-red">
+            <th>nom</th>
+            <th>descriptif</th>
+        </tr>
+
+        <tr th:each="activite: ${activites}">
+            <td th:text="${activite.titre}"></td>
+            <td th:text="${activite.descriptif}"></td>
+        </tr>
+    </table>
+
+</div>
+</body>
 </html>

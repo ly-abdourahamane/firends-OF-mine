@@ -6,9 +6,9 @@ import friendsofmine.repositories.ActiviteRepository;
 import friendsofmine.repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,7 +22,8 @@ import java.util.List;
 @Transactional
 public class InitialisationService {
 
-    public InitialisationService(){}
+    public InitialisationService() {
+    }
 
     @Autowired
     private ActiviteRepository activiteRepository;
@@ -30,35 +31,40 @@ public class InitialisationService {
     @Autowired
     private UtilisateurRepository utilisateurRepository;
 
-    private  Activite randonnee, lindyhop, taekwondo;
+    private Activite randonnee, lindyhop, taekwondo;
     private Utilisateur mary, thom;
 
     public void initDonnees() {
-        Activite activite1 = new Activite("preparateur de commande","prepare des commandes pour des magasin");
-        Activite activite2 = new Activite("footing","fait du sport pour se mettre en forme");
-        Activite activite3 = new Activite("reviser","preparation d'un examen");
-        Activite activite4 = new Activite("conduire","aller avec des amis en foot en salle");
+        Activite activite1 = new Activite("preparateur de commande", "prepare des commandes pour des magasin");
+        Activite activite2 = new Activite("footing", "fait du sport pour se mettre en forme");
+        Activite activite3 = new Activite("reviser", "preparation d'un examen");
+        Activite activite4 = new Activite("conduire", "aller avec des amis en foot en salle");
 
 
         Date date = Calendar.getInstance().getTime();
 
-        Utilisateur utilisateur1 = new Utilisateur("ly","abdou","abd@gmail.com","M",new Date());
-        Utilisateur utilisateur2 = new Utilisateur("diallo","mariam","mam@gmail.com","F",date);
-        Utilisateur utilisateur3 = new Utilisateur("sylla","issaga","isga@gmail.com","M",date);
-        Utilisateur utilisateur4 = new Utilisateur("camara","aissata","aissata@gmail.com","F",new Date());
-        Utilisateur utilisateur5 = new Utilisateur("kololomou","jean","jean@gmail.com","M",date);
+        Utilisateur utilisateur1 = new Utilisateur("ly", "abdou", "abd@gmail.com", "M", new Date());
+        Utilisateur utilisateur2 = new Utilisateur("diallo", "mariam", "mam@gmail.com", "F", date);
+        Utilisateur utilisateur3 = new Utilisateur("sylla", "issaga", "isga@gmail.com", "M", date);
+        Utilisateur utilisateur4 = new Utilisateur("camara", "aissata", "aissata@gmail.com", "F", new Date());
+        Utilisateur utilisateur5 = new Utilisateur("kololomou", "jean", "jean@gmail.com", "M", date);
 
-        mary = new Utilisateur("mary","youla","mary@gmail.com","F",date);
-        thom = new Utilisateur("thom","diallo","thom@gmail.com","M",date);
+        mary = new Utilisateur("youla", "mary", "mary@gmail.com", "F", date);
+        thom = new Utilisateur("diallo", "thom", "thom@gmail.com", "M", date);
 
-        randonnee = new Activite("randonnee","randonnée");
-        lindyhop = new Activite("lindyhop","lindyhp");
-        taekwondo = new Activite("taekwondo","taekwondo");
+        randonnee = new Activite("randonnee", "randonnée");
+        lindyhop = new Activite("lindyhop", "lindyhp");
+        taekwondo = new Activite("taekwondo", "taekwondo");
 
         activiteRepository.save(randonnee);
         activiteRepository.save(lindyhop);
         activiteRepository.save(taekwondo);
-
+/*
+        thom.addActivites(randonnee);
+        mary.addActivites(taekwondo);
+        thom.addActivites(lindyhop);
+        mary.addActivites(lindyhop);
+*/
         utilisateurRepository.save(thom);
         utilisateurRepository.save(mary);
 

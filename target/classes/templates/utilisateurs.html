@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <link rel="stylesheet" type="text/css" href="../static/css/w3.css" th:href="@{css/w3.css}" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>utilisateurs</title>
-    </head>
-    <style>
-        .w3-allerta {
-            font-family: "Allerta Stencil", Sans-serif;
-        }
-    </style>
-    <body >
-           <div class="w3-container">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/css/w3.css" th:href="@{/css/w3.css}"/>
+    <title>Friends of Mine</title>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
 
-            <!--/*/ <th:block th:include="header :: header"></th:block> /*/-->
+<body>
+<!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
 
-               <h1>Liste des utilisateurs</h1>
+<h2>Liste des Utilisateurs</h2>
+<table class="w3-table-all w3-hoverable">
+    <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Date de naissance</th>
+        <th>Sexe</th>
+    </tr>
+    <tr th:each="utilisateur : ${utilisateurs}">
+        <td th:text="${utilisateur.id}"></td>
+        <td th:text="${utilisateur.nom}"></td>
+        <td th:text="${utilisateur.prenom}"></td>
+        <td th:text="${utilisateur.email}"></td>
+        <td th:text="${utilisateur.dateNaissance}"></td>
+        <td th:text="${utilisateur.sexe}"></td>
+        <td><a th:href="${ '/utilisateur/' + utilisateur.id}">Voir</a></td>
+        <td><a th:href="${'/utilisateur/edit/' + utilisateur.id}">Editer</a></td>
+        <td><a th:href="${'/utilisateur/delete/' + utilisateur.id}">Supprimer</a></td>
+    </tr>
+</table>
 
-
-            <table class="w3-table-all">
-                <thead>
-                <tr class="w3-light-grey w3-hover-red">
-                    <th>nom</th>
-                    <th>prenom</th>
-                    <th>mail</th>
-                    <th>sexe</th>
-                    <th>date</th>
-                </tr>
-                </thead>
-                <tr class="w3-hover-green" th:each="utilisateur: ${utilisateurs}">
-                    <td th:text="${utilisateur.nom}"></td>
-                    <td th:text="${utilisateur.prenom}"></td>
-                    <td th:text="${utilisateur.mail}"></td>
-                    <td th:text="${utilisateur.sexe}"></td>
-                    <td th:text="${utilisateur.date}"></td>
-                </tr>
-            </table>
-        </div>
-    </body>
+</body>
 </html>

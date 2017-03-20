@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org xmlns:sec=http://www.thymeleaf.org/extras/spring-security">
 <head>
-<link rel="stylesheet" type="text/css" href="../static/css/w3.css" th:href="@{css/w3.css}" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../static/css/w3.css" th:href="@{/css/w3.css}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 <div class="w3-container">
     <div class="w3-show-inline-block">
         <div class="w3-bar w3-light-grey">
-    <header>
-        <a href="#" class="w3-bar-item w3-button w3-dark-grey" th:href="@{/}">Accueil</a>
-        <a href="#" class="w3-bar-item w3-button" th:href="@{/utilisateurs}">Utilisateurs</a>
-        <a href="#" class="w3-bar-item w3-button" th:href="@{/activites}">Activites</a>
+            <header>
+                <a href="#" class="w3-bar-item w3-button w3-dark-grey" th:href="@{/}">Accueil</a>
+                <a href="#" class="w3-bar-item w3-button" th:href="@{/utilisateurs}">Utilisateurs</a>
+                <a href="#" class="w3-bar-item w3-button" th:href="@{/activites}">Activites</a>
 
-        <img src="../static/images/logo_linux.jpeg" class="w3-circle" alt="linux" style="width:7%"
-             th:src="@{/images/logo_linux.jpeg}"/>
+                <img src="../static/images/logo_linux.jpeg" class="w3-circle" alt="linux" style="width:7%"
+                     th:src="@{/images/logo_linux.jpeg}"/>
 
-    </header>
+            </header>
         </div>
     </div>
 
-    </div>
+</div>
 
 </body>
 </html>

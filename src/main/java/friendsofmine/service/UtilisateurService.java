@@ -1,6 +1,7 @@
 package friendsofmine.service;
 
 import friendsofmine.domain.Utilisateur;
+import friendsofmine.repositories.ActiviteRepository;
 import friendsofmine.repositories.IUtilisateurService;
 import friendsofmine.repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,12 @@ import java.util.List;
 public class UtilisateurService implements IUtilisateurService {
 
     private UtilisateurRepository utilisateurRepository;
+    private ActiviteRepository activiteRepository;
+
+    @Autowired
+    public void setActiviteRepository(ActiviteRepository activiteRepository){
+        this.activiteRepository = activiteRepository;
+    }
 
     @Autowired
     public void setUtilisateurRepository(UtilisateurRepository utilisateurRepository) {
@@ -34,12 +41,12 @@ public class UtilisateurService implements IUtilisateurService {
     }
 
     @Override
-    public Utilisateur findOneUtilisateur(Long id){
-       return this.utilisateurRepository.findOne(id);
+    public Utilisateur findOneUtilisateur(long id) {
+        return this.utilisateurRepository.findOne(id);
     }
 
     @Override
-    public Long countUtilisateur(){
+    public long countUtilisateur() {
         return this.utilisateurRepository.count();
     }
 
@@ -53,7 +60,11 @@ public class UtilisateurService implements IUtilisateurService {
         return utilisateurRepository;
     }
 
-    public ArrayList<Utilisateur> findAllUtilisateurs(){
-        return (ArrayList<Utilisateur>) this.utilisateurRepository.findAll(new Sort(Sort.Direction.ASC,"nom"));
+    public ArrayList<Utilisateur> findAllUtilisateurs() {
+        return (ArrayList<Utilisateur>) this.utilisateurRepository.findAll(new Sort(Sort.Direction.ASC, "nom"));
+    }
+
+    public void deleteUtilisateur(long id) {
+        this.utilisateurRepository.delete(id);
     }
 }

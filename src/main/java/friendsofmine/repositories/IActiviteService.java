@@ -7,7 +7,10 @@ import friendsofmine.domain.Activite;
  */
 public interface IActiviteService {
     public void saveActivite(Activite activite);
-    public Activite findOneActivite(Long id);
-    public Long countActivite();
+
+    public Activite findOneActivite(long id);
+
+    public long countActivite();
+
     public ActiviteRepository getActiviteRepository();
 }

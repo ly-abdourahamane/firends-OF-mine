@@ -36,7 +36,7 @@ public class ActiviteServiceTest {
     }
 
     @Test
-    public void testSaveActiviteHasId(){
+    public void testSaveActiviteHasId() {
         assertNull(act.getId());
         activiteService.saveActivite(act);
         assertNotNull(act.getId());
@@ -71,7 +71,7 @@ public class ActiviteServiceTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testSaveActiviteNull(){
+    public void testSaveActiviteNull() {
 
         activiteService.saveActivite(null);
     }
@@ -103,7 +103,7 @@ public class ActiviteServiceTest {
     @Test
     @Transactional
     public void testNombreDActivitePersisteeApresMiseAJour() {
-        Long count = activiteService.countActivite();
+        long count = activiteService.countActivite();
         Activite fetched = activiteService.findOneActivite(act1.getId());
         fetched.setDescriptif("Nouvelle description");
         activiteService.saveActivite(fetched);

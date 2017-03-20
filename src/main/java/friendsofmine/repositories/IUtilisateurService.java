@@ -7,9 +7,14 @@ import friendsofmine.domain.Utilisateur;
  */
 public interface IUtilisateurService {
     public void saveUtilisateur(Utilisateur utilisateur);
-    public Utilisateur findOneUtilisateur(Long id);
+
+    public Utilisateur findOneUtilisateur(long id);
+
     public String getEmail();
-    public Long countUtilisateur();
+
+    public long countUtilisateur();
+
     public void setEmail(String email);
+
     public UtilisateurRepository getUtilisateurRepository();
 }

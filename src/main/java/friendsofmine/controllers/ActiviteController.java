@@ -18,7 +18,7 @@ public class ActiviteController {
     private ActiviteService activiteService;
 
     @RequestMapping(value = "/activites", method = RequestMethod.GET)
-    public String list(Model model){
+    public String list(Model model) {
         model.addAttribute("activites", activiteService.findAllActivites());
         return "activites";
     }

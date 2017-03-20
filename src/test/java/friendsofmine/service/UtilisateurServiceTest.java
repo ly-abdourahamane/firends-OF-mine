@@ -30,7 +30,7 @@ public class UtilisateurServiceTest {
     }
 
     @Test
-    public void testSaveUtilisateur(){
+    public void testSaveUtilisateur() {
         assertNull(util.getId());
         utilisateurService.saveUtilisateur(util);
         assertNotNull(util.getId());
@@ -60,7 +60,7 @@ public class UtilisateurServiceTest {
 
     @Test
     public void testNombreDUtilisateurPersisteeApresMiseAJour() {
-        Long count = utilisateurService.countUtilisateur();
+        long count = utilisateurService.countUtilisateur();
         Utilisateur fetched = utilisateurService.findOneUtilisateur(util1.getId());
         fetched.setEmail("titi@titi.fr");
         utilisateurService.saveUtilisateur(fetched);

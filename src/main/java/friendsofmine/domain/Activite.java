@@ -14,20 +14,28 @@ import javax.validation.constraints.Size;
 public class Activite {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
     @Column
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     private String titre;
 
     @Column
     private String descriptif;
 
     //mise en place de la persistance
-   // @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
-    private  Utilisateur utilisateur;
+    // @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Utilisateur utilisateur;
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
 
     public Utilisateur getUtilisateur() {
         return utilisateur;
@@ -37,7 +45,8 @@ public class Activite {
         this.utilisateur = utilisateur;
     }
 
-    public Activite(){}
+    public Activite() {
+    }
 
     public Activite(String titre, String descriptif) {
         this.titre = titre;
@@ -54,7 +63,7 @@ public class Activite {
         this.descriptif = descriptif;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

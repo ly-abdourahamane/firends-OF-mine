@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +17,21 @@ import java.util.List;
  */
 
 @Service
+@org.springframework.transaction.annotation.Transactional
 public class ActiviteService implements IActiviteService {
 
-    @Autowired
-    private ActiviteRepository activiteRepository;
+    private ActiviteRepository activiteRepository;    private UtilisateurService utilisateurService;
+
 
     @Autowired
-    private UtilisateurService utilisateurService;
+    public void setActiviteRepository(ActiviteRepository activiteRepository) {
+        this.activiteRepository = activiteRepository;
+    }
+
+    @Autowired
+    public void setUtilisateurService(UtilisateurService utilisateurService) {
+        this.utilisateurService = utilisateurService;
+    }
 
     public ActiviteService() {
 
@@ -33,8 +42,8 @@ public class ActiviteService implements IActiviteService {
     }
 
     @Override
-    public void saveActivite(Activite activite){
-        if(activite == null) {
+    public void saveActivite(Activite activite) {
+        if (activite == null) {
             throw new IllegalArgumentException();
         }
         this.utilisateurService.saveUtilisateur(activite.getUtilisateur());
@@ -43,21 +52,21 @@ public class ActiviteService implements IActiviteService {
     }
 
     @Override
-    public Activite findOneActivite(Long id){
+    public Activite findOneActivite(long id) {
         return this.activiteRepository.findOne(id);
     }
 
     @Override
-    public Long countActivite(){
+    public long countActivite() {
         return this.activiteRepository.count();
     }
 
     @Override
-    public ActiviteRepository getActiviteRepository(){
+    public ActiviteRepository getActiviteRepository() {
         return activiteRepository;
     }
 
     public ArrayList<Activite> findAllActivites() {
-        return (ArrayList<Activite>) this.activiteRepository.findAll(new Sort(Sort.Direction.ASC,"titre"));
+        return (ArrayList<Activite>) this.activiteRepository.findAll(new Sort(Sort.Direction.ASC, "titre"));
     }
 }

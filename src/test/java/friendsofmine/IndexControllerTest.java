@@ -16,12 +16,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 public class IndexControllerTest {
     private MockMvc mockMvc;
+
     @Before
     public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
     }
+
     @Test
-    public void testIndex() throws Exception{
+    public void testIndex() throws Exception {
         this.mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("index"))
